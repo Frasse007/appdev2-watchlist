@@ -12,7 +12,7 @@ function Watchlist() {
         <p>Your saved watchlist collection</p>
       </div>
       {watchList.length > 0 ? (
-        <MovieGrid movies={watchlist} />
+        <MovieGrid movies={watchList} />
       ) : (
         <div className="empty-state">
           <p>Your watchlist is empty. Start adding some from the home page!</p>
