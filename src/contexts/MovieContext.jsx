@@ -1,4 +1,5 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
+import Watchlist from '../pages/Watchlist';
 
 const WatchListContext = createContext();
 
@@ -11,7 +12,23 @@ export function useWatchList() {
 };
 
 export function WatchListProvider({ children }) {
-    const [watchList, setWatchList] = useState([]);
+    const [watchList, setWatchList] = useState(() => {
+        try {
+            const savedWatchlist = localStorage.getItem('watchlist');
+            return savedWatchlist ? JSON.parse(savedWatchlist) : [];
+        } catch (error) {
+            console.error("Failed to parse watchlist from localStorage:", error);
+            return [];
+        }
+    });
+
+    useEffect(() => {
+        try {
+            localStorage.setItem('watchlist', JSON.stringify(watchList));
+        } catch (error) {
+            console.error("Failed to save watchlist to localStorage:", error);
+        }
+    }, [watchList]);
 
     const addToWatchList = (movie) => {
         if (!watchList.some(m => m.id === movie.id)) {
