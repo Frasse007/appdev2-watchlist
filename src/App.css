@@ -194,6 +194,7 @@ body {
   font-size: 1rem;
   font-weight: bold;
   transition: all 0.3s;
+  margin-bottom: 0.5rem;
 }
 
 .favorite-button:hover {
@@ -202,6 +203,30 @@ body {
 }
 
 .favorite-button.favorited {
+  background-color: #e50914;
+  border-color: #e50914;
+}
+
+/* Watchlist Button Styling */
+.watchlist-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #333;
+  color: #ffffff;
+  border: 2px solid #555;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.watchlist-button:hover {
+  background-color: #e50914;
+  border-color: #e50914;
+}
+
+.watchlist-button.in-watchlist {
   background-color: #e50914;
   border-color: #e50914;
 }
