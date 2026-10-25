@@ -1,5 +1,4 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import Watchlist from '../pages/Watchlist';
 
 const WatchListContext = createContext();
 
